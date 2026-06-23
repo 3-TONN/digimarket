@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Как это работает — DigiMarket</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -10,6 +10,7 @@
 <body>
     <div class="glow glow-1"></div>
     <div class="glow glow-2"></div>
+    <div class="glow glow-3"></div>
 
     <nav class="navbar">
         <div class="nav-container">
@@ -22,111 +23,218 @@
                 </div>
                 <span class="logo-text">DigiMarket</span>
             </a>
-            <div class="nav-actions">
-                <a href="index.html" class="btn-ghost">◀️ Назад</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Главная</a>
+                <a href="catalog.html" class="nav-link">Каталог</a>
+                <a href="sellers.html" class="nav-link">Продавцы</a>
+                <a href="how.html" class="nav-link active">Как это работает</a>
             </div>
+            <div class="nav-actions">
+                <button class="btn-ghost" id="loginBtn">Войти</button>
+                <button class="btn-primary" id="sellerBtn">Стать продавцом</button>
+            </div>
+            <button class="burger" id="burger">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" class="mobile-link">Главная</a>
+        <a href="catalog.html" class="mobile-link">Каталог</a>
+        <a href="sellers.html" class="mobile-link">Продавцы</a>
+        <a href="how.html" class="mobile-link">Как это работает</a>
+        <button class="btn-primary full-width">Войти через Telegram</button>
+    </div>
 
     <main class="page-content">
         <div class="container">
             <div class="page-header">
                 <h1 class="page-title">Как это работает</h1>
-                <p class="page-subtitle">Простой способ покупать и продавать</p>
+                <p class="page-subtitle">Простой способ покупать и продавать цифровые товары</p>
             </div>
 
             <section class="how-section">
-                <h2 class="section-title" style="text-align: left;">Для покупателей</h2>
+                <h2 class="section-title">Для покупателей</h2>
                 <div class="steps-grid">
                     <div class="step-card">
                         <div class="step-number">01</div>
-                        <div class="step-icon">📱</div>
+                        <div class="step-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                        </div>
                         <h3>Открой бота</h3>
-                        <p>Найди @DigiMarketBot и нажми «Каталог»</p>
+                        <p>Найди @DigiMarketBot в Telegram и нажми «Открыть магазин»</p>
                     </div>
                     <div class="step-card">
                         <div class="step-number">02</div>
-                        <div class="step-icon">🔍</div>
+                        <div class="step-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                            </svg>
+                        </div>
                         <h3>Найди товар</h3>
-                        <p>Просматривай каталог, фильтруй по категориям</p>
+                        <p>Просматривай каталог, фильтруй по категориям, ищи по названию</p>
                     </div>
                     <div class="step-card">
                         <div class="step-number">03</div>
-                        <div class="step-icon">⭐</div>
+                        <div class="step-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                            </svg>
+                        </div>
                         <h3>Оплати Stars</h3>
-                        <p>Безопасная оплата через Telegram Stars</p>
+                        <p>Безопасная оплата через Telegram Stars — комиссия уже включена</p>
                     </div>
                     <div class="step-card">
                         <div class="step-number">04</div>
-                        <div class="step-icon">📦</div>
+                        <div class="step-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                        </div>
                         <h3>Получи товар</h3>
-                        <p>Мгновенная доставка файла или ссылки</p>
+                        <p>Мгновенная доставка: файл, ссылка или бот активируется сразу</p>
                     </div>
                 </div>
             </section>
 
             <section class="how-section">
-                <h2 class="section-title" style="text-align: left;">Для продавцов</h2>
+                <h2 class="section-title">Для продавцов</h2>
                 <div class="steps-grid">
                     <div class="step-card">
                         <div class="step-number">01</div>
-                        <div class="step-icon">👤</div>
+                        <div class="step-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/>
+                            </svg>
+                        </div>
                         <h3>Зарегистрируйся</h3>
-                        <p>Нажми «Стать продавцом» в боте</p>
+                        <p>Открой бота и нажми «Стать продавцом» — регистрация за 30 секунд</p>
                     </div>
                     <div class="step-card">
                         <div class="step-number">02</div>
-                        <div class="step-icon">📤</div>
+                        <div class="step-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/>
+                            </svg>
+                        </div>
                         <h3>Загрузи товар</h3>
-                        <p>Добавь название, описание, цену и файл</p>
+                        <p>Добавь название, описание, цену и файл — мы доставим покупателю</p>
                     </div>
                     <div class="step-card">
                         <div class="step-number">03</div>
-                        <div class="step-icon">💰</div>
+                        <div class="step-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                            </svg>
+                        </div>
                         <h3>Получай оплату</h3>
-                        <p>Мгновенные выплаты через Stars, комиссия 10%</p>
+                        <p>Мгновенные выплаты через Telegram Stars — комиссия всего 10%</p>
                     </div>
                     <div class="step-card">
                         <div class="step-number">04</div>
-                        <div class="step-icon">📈</div>
+                        <div class="step-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M18 20V10M12 20V4M6 20v-6"/>
+                            </svg>
+                        </div>
                         <h3>Анализируй</h3>
-                        <p>Отслеживай продажи и доход</p>
+                        <p>Отслеживай продажи, конверсию и доход в личном кабинете</p>
                     </div>
                 </div>
             </section>
 
             <section class="faq-section">
-                <h2 class="section-title" style="text-align: left;">Вопросы</h2>
+                <h2 class="section-title">Частые вопросы</h2>
                 <div class="faq-grid">
                     <div class="faq-item">
-                        <h3>Что такое Stars?</h3>
-                        <p>Внутренняя валюта Telegram для оплаты цифровых товаров.</p>
+                        <h3>Что такое Telegram Stars?</h3>
+                        <p>Telegram Stars — это внутренняя валюта Telegram для оплаты цифровых товаров и услуг. Покупатели приобретают Stars за реальные деньги и тратят их в мини-приложениях.</p>
                     </div>
                     <div class="faq-item">
                         <h3>Какая комиссия?</h3>
-                        <p>10% с каждой продажи. Включает обработку платежей и доставку.</p>
+                        <p>Мы берём комиссию 10% с каждой продажи. Это включает обработку платежей, хранение файлов и техническую поддержку.</p>
                     </div>
                     <div class="faq-item">
-                        <h3>Что можно продавать?</h3>
-                        <p>Шаблоны, стикеры, пресеты, боты, курсы и другой цифровой контент.</p>
+                        <h3>Какие товары можно продавать?</h3>
+                        <p>Шаблоны, стикеры, пресеты, боты, курсы, дизайн-ресурсы и любой другой цифровой контент, который не нарушает правила Telegram.</p>
                     </div>
                     <div class="faq-item">
                         <h3>Как происходит доставка?</h3>
-                        <p>Мгновенно после оплаты: файл, ссылка или активация бота.</p>
+                        <p>После оплаты покупатель мгновенно получает файл или ссылку. Для ботов — активация происходит автоматически.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cta" style="padding: 60px 0;">
+                <div class="cta-card">
+                    <h2>Готов начать?</h2>
+                    <p>Присоединяйся к 3,200 продавцов и 89,000 покупателей на DigiMarket.</p>
+                    <div class="cta-actions">
+                        <button class="btn-primary btn-lg">Стать продавцом</button>
+                        <a href="catalog.html" class="btn-outline btn-lg">Перейти в каталог</a>
                     </div>
                 </div>
             </section>
         </div>
     </main>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const tg = window.Telegram?.WebApp;
-            if (tg) { tg.ready(); tg.expand(); }
-            document.querySelectorAll('.faq-item').forEach(item => {
-                item.addEventListener('click', () => item.classList.toggle('expanded'));
-            });
-        });
-    </script>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">
+                            <svg width="28" height="28" viewBox="0 0 36 36" fill="none">
+                                <rect width="36" height="36" rx="10" fill="#F97316"/>
+                                <path d="M10 18L15 23L26 12" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <span class="logo-text">DigiMarket</span>
+                    </a>
+                    <p class="footer-desc">Цифровой маркетплейс в Telegram. Покупай и продавай цифровые товары за Stars.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Маркетплейс</h4>
+                    <a href="catalog.html">Каталог</a>
+                    <a href="sellers.html">Продавцы</a>
+                    <a href="#">Новинки</a>
+                    <a href="#">Скидки</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Продавцам</h4>
+                    <a href="how.html">Стать продавцом</a>
+                    <a href="#">Тарифы</a>
+                    <a href="#">Аналитика</a>
+                    <a href="#">Выплаты</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Поддержка</h4>
+                    <a href="#">Помощь</a>
+                    <a href="#">Правила</a>
+                    <a href="#">Контакты</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 DigiMarket. Все права защищены.</span>
+                <div class="footer-socials">
+                    <a href="#" class="social-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
 </body>
 </html>

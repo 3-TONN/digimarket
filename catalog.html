@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Каталог — DigiMarket</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -10,6 +10,7 @@
 <body>
     <div class="glow glow-1"></div>
     <div class="glow glow-2"></div>
+    <div class="glow glow-3"></div>
 
     <nav class="navbar">
         <div class="nav-container">
@@ -22,17 +23,35 @@
                 </div>
                 <span class="logo-text">DigiMarket</span>
             </a>
-            <div class="nav-actions">
-                <a href="index.html" class="btn-ghost">◀️</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Главная</a>
+                <a href="catalog.html" class="nav-link active">Каталог</a>
+                <a href="sellers.html" class="nav-link">Продавцы</a>
+                <a href="how.html" class="nav-link">Как это работает</a>
             </div>
+            <div class="nav-actions">
+                <button class="btn-ghost" id="loginBtn">Войти</button>
+                <button class="btn-primary" id="sellerBtn">Стать продавцом</button>
+            </div>
+            <button class="burger" id="burger">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" class="mobile-link">Главная</a>
+        <a href="catalog.html" class="mobile-link">Каталог</a>
+        <a href="sellers.html" class="mobile-link">Продавцы</a>
+        <a href="how.html" class="mobile-link">Как это работает</a>
+        <button class="btn-primary full-width">Войти через Telegram</button>
+    </div>
 
     <main class="page-content">
         <div class="container">
             <div class="page-header">
                 <h1 class="page-title">Каталог</h1>
-                <p class="page-subtitle">12,000+ цифровых товаров</p>
+                <p class="page-subtitle">Более 12,000 цифровых товаров в 6 категориях</p>
             </div>
 
             <div class="catalog-filters">
@@ -42,6 +61,17 @@
                     <button class="filter-btn" data-category="stickers">Стикеры</button>
                     <button class="filter-btn" data-category="bots">Боты</button>
                     <button class="filter-btn" data-category="presets">Пресеты</button>
+                    <button class="filter-btn" data-category="guides">Гайды</button>
+                    <button class="filter-btn" data-category="design">Дизайн</button>
+                </div>
+                <div class="filter-sort">
+                    <select class="sort-select">
+                        <option>Популярные</option>
+                        <option>Новинки</option>
+                        <option>Дешевле</option>
+                        <option>Дороже</option>
+                        <option>По рейтингу</option>
+                    </select>
                 </div>
             </div>
 
@@ -49,15 +79,32 @@
                 <div class="product-card" data-category="templates">
                     <div class="product-image gradient-1">
                         <div class="product-badge">Хит</div>
-                        <button class="product-fav"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+                        <button class="product-fav">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                            </svg>
+                        </button>
                     </div>
                     <div class="product-info">
                         <div class="product-category">Шаблоны</div>
                         <h3 class="product-title">Notion Life OS</h3>
-                        <p class="product-desc">Система управления жизнью: задачи, привычки, финансы</p>
+                        <p class="product-desc">Полная система управления жизнью: задачи, привычки, финансы, цели</p>
                         <div class="product-footer">
-                            <span class="price-stars">⭐ 500</span>
-                            <div class="product-rating"><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBF24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 4.9</div>
+                            <div class="product-price">
+                                <span class="price-stars">⭐ 500</span>
+                                <span class="price-usd">≈ $5</span>
+                            </div>
+                            <div class="product-rating">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBF24">
+                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                </svg>
+                                4.9
+                            </div>
+                        </div>
+                        <div class="product-seller">
+                            <div class="seller-avatar gradient-3"></div>
+                            <span>@notionmaster</span>
+                            <span class="sales-count">1,240 продаж</span>
                         </div>
                     </div>
                 </div>
@@ -65,30 +112,64 @@
                 <div class="product-card" data-category="stickers">
                     <div class="product-image gradient-2">
                         <div class="product-badge new">Новинка</div>
-                        <button class="product-fav"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+                        <button class="product-fav">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                            </svg>
+                        </button>
                     </div>
                     <div class="product-info">
                         <div class="product-category">Стикеры</div>
                         <h3 class="product-title">Kawaii Stickers</h3>
-                        <p class="product-desc">40 милых стикеров для общения</p>
+                        <p class="product-desc">40 милых стикеров для ежедневного общения в Telegram</p>
                         <div class="product-footer">
-                            <span class="price-stars">⭐ 150</span>
-                            <div class="product-rating"><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBF24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 4.8</div>
+                            <div class="product-price">
+                                <span class="price-stars">⭐ 150</span>
+                                <span class="price-usd">≈ $1.5</span>
+                            </div>
+                            <div class="product-rating">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBF24">
+                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                </svg>
+                                4.8
+                            </div>
+                        </div>
+                        <div class="product-seller">
+                            <div class="seller-avatar gradient-4"></div>
+                            <span>@stickerlab</span>
+                            <span class="sales-count">3,560 продаж</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="product-card" data-category="bots">
                     <div class="product-image gradient-5">
-                        <button class="product-fav"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+                        <button class="product-fav">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                            </svg>
+                        </button>
                     </div>
                     <div class="product-info">
                         <div class="product-category">Боты</div>
                         <h3 class="product-title">AI Writer Bot</h3>
-                        <p class="product-desc">Генерация текстов с AI</p>
+                        <p class="product-desc">Telegram-бот для генерации текстов, постов и статей с AI</p>
                         <div class="product-footer">
-                            <span class="price-stars">⭐ 800</span>
-                            <div class="product-rating"><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBF24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 4.7</div>
+                            <div class="product-price">
+                                <span class="price-stars">⭐ 800</span>
+                                <span class="price-usd">≈ $8</span>
+                            </div>
+                            <div class="product-rating">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBF24">
+                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                </svg>
+                                4.7
+                            </div>
+                        </div>
+                        <div class="product-seller">
+                            <div class="seller-avatar gradient-6"></div>
+                            <span>@aibots_dev</span>
+                            <span class="sales-count">890 продаж</span>
                         </div>
                     </div>
                 </div>
@@ -96,15 +177,98 @@
                 <div class="product-card" data-category="presets">
                     <div class="product-image gradient-3">
                         <div class="product-badge">-30%</div>
-                        <button class="product-fav"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></button>
+                        <button class="product-fav">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                            </svg>
+                        </button>
                     </div>
                     <div class="product-info">
                         <div class="product-category">Пресеты</div>
                         <h3 class="product-title">Cinematic Presets</h3>
-                        <p class="product-desc">15 пресетов для Lightroom</p>
+                        <p class="product-desc">15 пресетов для Lightroom в стиле кино — тёплые тона, плёнка</p>
                         <div class="product-footer">
-                            <span class="price-stars">⭐ 245</span>
-                            <div class="product-rating"><svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBF24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> 4.9</div>
+                            <div class="product-price">
+                                <span class="price-old">⭐ 350</span>
+                                <span class="price-stars">⭐ 245</span>
+                                <span class="price-usd">≈ $2.5</span>
+                            </div>
+                            <div class="product-rating">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBF24">
+                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                </svg>
+                                4.9
+                            </div>
+                        </div>
+                        <div class="product-seller">
+                            <div class="seller-avatar gradient-1"></div>
+                            <span>@preset_pro</span>
+                            <span class="sales-count">2,100 продаж</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="guides">
+                    <div class="product-image gradient-4">
+                        <button class="product-fav">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Гайды</div>
+                        <h3 class="product-title">Telegram Bot Guide</h3>
+                        <p class="product-desc">Пошаговый курс по созданию Telegram ботов с нуля</p>
+                        <div class="product-footer">
+                            <div class="product-price">
+                                <span class="price-stars">⭐ 1200</span>
+                                <span class="price-usd">≈ $12</span>
+                            </div>
+                            <div class="product-rating">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBF24">
+                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                </svg>
+                                4.6
+                            </div>
+                        </div>
+                        <div class="product-seller">
+                            <div class="seller-avatar gradient-2"></div>
+                            <span>@devschool</span>
+                            <span class="sales-count">450 продаж</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="design">
+                    <div class="product-image gradient-6">
+                        <div class="product-badge new">Новинка</div>
+                        <button class="product-fav">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">Дизайн</div>
+                        <h3 class="product-title">UI Kit Pro</h3>
+                        <p class="product-desc">200+ компонентов для Figma: кнопки, формы, карточки</p>
+                        <div class="product-footer">
+                            <div class="product-price">
+                                <span class="price-stars">⭐ 750</span>
+                                <span class="price-usd">≈ $7.5</span>
+                            </div>
+                            <div class="product-rating">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBF24">
+                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                </svg>
+                                4.8
+                            </div>
+                        </div>
+                        <div class="product-seller">
+                            <div class="seller-avatar gradient-5"></div>
+                            <span>@designhub</span>
+                            <span class="sales-count">780 продаж</span>
                         </div>
                     </div>
                 </div>
@@ -112,24 +276,59 @@
         </div>
     </main>
 
-    <div class="modal" id="productModal">
-        <div class="modal-overlay"></div>
-        <div class="modal-content">
-            <button class="modal-close">✕</button>
-            <div class="modal-product-image gradient-1" id="modalImage"></div>
-            <h3 id="modalTitle">Товар</h3>
-            <p class="modal-price" id="modalPrice">⭐ 0</p>
-            <p class="modal-desc">Доставка мгновенно после оплаты через Telegram Stars.</p>
-            <button class="btn-primary full-width" id="modalBuy">Купить</button>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">
+                            <svg width="28" height="28" viewBox="0 0 36 36" fill="none">
+                                <rect width="36" height="36" rx="10" fill="#F97316"/>
+                                <path d="M10 18L15 23L26 12" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <span class="logo-text">DigiMarket</span>
+                    </a>
+                    <p class="footer-desc">Цифровой маркетплейс в Telegram. Покупай и продавай цифровые товары за Stars.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Маркетплейс</h4>
+                    <a href="catalog.html">Каталог</a>
+                    <a href="sellers.html">Продавцы</a>
+                    <a href="#">Новинки</a>
+                    <a href="#">Скидки</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Продавцам</h4>
+                    <a href="how.html">Стать продавцом</a>
+                    <a href="#">Тарифы</a>
+                    <a href="#">Аналитика</a>
+                    <a href="#">Выплаты</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Поддержка</h4>
+                    <a href="#">Помощь</a>
+                    <a href="#">Правила</a>
+                    <a href="#">Контакты</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 DigiMarket. Все права защищены.</span>
+                <div class="footer-socials">
+                    <a href="#" class="social-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
         </div>
-    </div>
-
-    <div class="notification" id="notification">
-        <div class="notification-content">
-            <span class="notification-icon"></span>
-            <span class="notification-text"></span>
-        </div>
-    </div>
+    </footer>
 
     <script src="app.js"></script>
 </body>
