@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Продавцы — DigiMarket</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+                        <rect width="36" height="36" rx="10" fill="#F97316"/>
+                        <path d="M10 18L15 23L26 12" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <span class="logo-text">DigiMarket</span>
+            </a>
+            <div class="nav-actions">
+                <a href="index.html" class="btn-ghost">◀️ Назад</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="page-content">
+        <div class="container">
+            <div class="page-header">
+                <h1 class="page-title">Продавцы</h1>
+                <p class="page-subtitle">Топ продавцов цифровых товаров</p>
+            </div>
+
+            <div class="sellers-grid">
+                <div class="seller-card">
+                    <div class="seller-rank">#1</div>
+                    <div class="seller-big-avatar gradient-1"></div>
+                    <h3>@notionmaster</h3>
+                    <p class="seller-specialty">Notion шаблоны</p>
+                    <div class="seller-stats">
+                        <div><strong>1,240</strong> продаж</div>
+                        <div><strong>4.9</strong> ⭐</div>
+                    </div>
+                    <p class="seller-desc">Шаблоны для организации жизни и работы</p>
+                </div>
+                <div class="seller-card">
+                    <div class="seller-rank">#2</div>
+                    <div class="seller-big-avatar gradient-2"></div>
+                    <h3>@stickerlab</h3>
+                    <p class="seller-specialty">Стикерпаки</p>
+                    <div class="seller-stats">
+                        <div><strong>3,560</strong> продаж</div>
+                        <div><strong>4.8</strong> ⭐</div>
+                    </div>
+                    <p class="seller-desc">Авторские стикеры ручной работы</p>
+                </div>
+                <div class="seller-card">
+                    <div class="seller-rank">#3</div>
+                    <div class="seller-big-avatar gradient-5"></div>
+                    <h3>@aibots_dev</h3>
+                    <p class="seller-specialty">Telegram боты</p>
+                    <div class="seller-stats">
+                        <div><strong>890</strong> продаж</div>
+                        <div><strong>4.7</strong> ⭐</div>
+                    </div>
+                    <p class="seller-desc">Боты с AI для автоматизации</p>
+                </div>
+                <div class="seller-card">
+                    <div class="seller-rank">#4</div>
+                    <div class="seller-big-avatar gradient-3"></div>
+                    <h3>@preset_pro</h3>
+                    <p class="seller-specialty">Пресеты для фото</p>
+                    <div class="seller-stats">
+                        <div><strong>2,100</strong> продаж</div>
+                        <div><strong>4.9</strong> ⭐</div>
+                    </div>
+                    <p class="seller-desc">Профессиональные пресеты для Lightroom</p>
+                </div>
+            </div>
+
+            <section class="cta" style="padding: 40px 0;">
+                <div class="cta-card">
+                    <h2>Стань продавцом</h2>
+                    <p>Загружай товары и зарабатывай через Telegram Stars</p>
+                    <button class="btn-primary btn-lg" onclick="showNotification('Регистрация через бота /start')">Начать</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div class="notification" id="notification">
+        <div class="notification-content">
+            <span class="notification-icon"></span>
+            <span class="notification-text"></span>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tg = window.Telegram?.WebApp;
+            if (tg) { tg.ready(); tg.expand(); }
+        });
+        function showNotification(msg) {
+            const n = document.getElementById('notification');
+            n.querySelector('.notification-icon').textContent = 'ℹ';
+            n.querySelector('.notification-text').textContent = msg;
+            n.className = 'notification notification-info show';
+            setTimeout(() => n.classList.remove('show'), 3000);
+        }
+    </script>
+</body>
+</html>

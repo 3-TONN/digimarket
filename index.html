@@ -8,8 +8,113 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+                        <rect width="36" height="36" rx="10" fill="#F97316"/>
+                        <path d="M10 18L15 23L26 12" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <span class="logo-text">DigiMarket</span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="page-content">
+        <div class="container">
+            <div class="page-header">
+                <h1 class="page-title">DigiMarket</h1>
+                <p class="page-subtitle">Цифровой маркетплейс в Telegram</p>
+            </div>
+
+            <div class="hero-stats" style="justify-content: center; margin-bottom: 40px;">
+                <div class="stat">
+                    <span class="stat-value">12K+</span>
+                    <span class="stat-label">товаров</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value">3.2K</span>
+                    <span class="stat-label">продавцов</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-value">89K</span>
+                    <span class="stat-label">покупок</span>
+                </div>
+            </div>
+
+            <div class="menu-grid">
+                <a href="catalog.html" class="menu-card">
+                    <div class="menu-icon">🛍</div>
+                    <h3>Каталог</h3>
+                    <p>Шаблоны, стикеры, боты, пресеты</p>
+                </a>
+                <a href="sellers.html" class="menu-card">
+                    <div class="menu-icon">👥</div>
+                    <h3>Продавцы</h3>
+                    <p>Топ продавцов цифровых товаров</p>
+                </a>
+                <a href="how.html" class="menu-card">
+                    <div class="menu-icon">💡</div>
+                    <h3>Как это работает</h3>
+                    <p>Инструкция для покупателей и продавцов</p>
+                </a>
+                <a href="admin.html" class="menu-card">
+                    <div class="menu-icon">⚙️</div>
+                    <h3>Админ-панель</h3>
+                    <p>Управление маркетплейсом</p>
+                </a>
+            </div>
+
+            <section style="margin-top: 40px;">
+                <h2 class="section-title" style="text-align: left;">🔥 Хиты продаж</h2>
+                <div class="product-grid">
+                    <div class="product-card" data-category="templates">
+                        <div class="product-image gradient-1">
+                            <div class="product-badge">Хит</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Шаблоны</div>
+                            <h3 class="product-title">Notion Life OS</h3>
+                            <div class="product-footer">
+                                <span class="price-stars">⭐ 500</span>
+                                <div class="product-rating">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBF24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                    4.9
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-card" data-category="stickers">
+                        <div class="product-image gradient-2">
+                            <div class="product-badge new">Новинка</div>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">Стикеры</div>
+                            <h3 class="product-title">Kawaii Stickers</h3>
+                            <div class="product-footer">
+                                <span class="price-stars">⭐ 150</span>
+                                <div class="product-rating">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="#FBBF24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                    4.8
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
     <script>
-        window.location.href = 'catalog.html';
+        document.addEventListener('DOMContentLoaded', () => {
+            const tg = window.Telegram?.WebApp;
+            if (tg) { tg.ready(); tg.expand(); tg.setHeaderColor('#0a0a0f'); tg.setBackgroundColor('#0a0a0f'); }
+        });
     </script>
 </body>
 </html>
