@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админ-панель — DigiMarket</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+                        <rect width="36" height="36" rx="10" fill="#F97316"/>
+                        <path d="M10 18L15 23L26 12" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <span class="logo-text">DigiMarket</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Главная</a>
+                <a href="catalog.html" class="nav-link">Каталог</a>
+                <a href="admin.html" class="nav-link active">Админ</a>
+            </div>
+            <div class="nav-actions">
+                <button class="btn-ghost" id="logoutBtn">Выйти</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="page-content">
+        <div class="container">
+            <div class="admin-header">
+                <h1 class="page-title">Админ-панель</h1>
+                <p class="page-subtitle">Управление маркетплейсом DigiMarket</p>
+            </div>
+
+            <div class="admin-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="totalUsers">0</span>
+                        <span class="stat-label">Пользователей</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                        </svg>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="totalProducts">6</span>
+                        <span class="stat-label">Товаров</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                        </svg>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="totalSales">0</span>
+                        <span class="stat-label">Продаж</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 20V10M12 20V4M6 20v-6"/>
+                        </svg>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-value" id="totalRevenue">⭐ 0</span>
+                        <span class="stat-label">Доход</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="admin-grid">
+                <div class="admin-section">
+                    <h2 class="section-title">📢 Массовая рассылка</h2>
+                    <div class="broadcast-form">
+                        <div class="form-group">
+                            <label>Тип рассылки</label>
+                            <select id="broadcastType" class="form-select">
+                                <option value="all">Всем пользователям</option>
+                                <option value="active">Активным (7 дней)</option>
+                                <option value="new">Новым (сегодня)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Тип сообщения</label>
+                            <select id="messageType" class="form-select">
+                                <option value="text">Текст</option>
+                                <option value="photo">Фото + текст</option>
+                                <option value="video">Видео + текст</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Текст сообщения</label>
+                            <textarea id="broadcastText" class="form-textarea" rows="5" placeholder="Введите текст рассылки..."></textarea>
+                        </div>
+                        <div class="form-group" id="mediaGroup" style="display: none;">
+                            <label>Медиафайл</label>
+                            <input type="file" id="broadcastMedia" class="form-input" accept="image/*,video/*">
+                        </div>
+                        <div class="form-actions">
+                            <button class="btn-outline" id="previewBtn">👁 Предпросмотр</button>
+                            <button class="btn-primary" id="sendBroadcast">📤 Отправить</button>
+                        </div>
+                        <div class="broadcast-status" id="broadcastStatus"></div>
+                    </div>
+                </div>
+
+                <div class="admin-section">
+                    <h2 class="section-title">👥 Пользователи</h2>
+                    <div class="users-search">
+                        <input type="text" id="userSearch" class="form-input" placeholder="Поиск по username или ID...">
+                    </div>
+                    <div class="users-list" id="usersList">
+                        <div class="empty-state">Загрузка...</div>
+                    </div>
+                </div>
+
+                <div class="admin-section">
+                    <h2 class="section-title">🛍 Управление товарами</h2>
+                    <div class="products-admin">
+                        <button class="btn-primary" id="addProductBtn">+ Добавить товар</button>
+                        <div class="products-list" id="productsList">
+                            <div class="product-admin-item">
+                                <div class="product-admin-info">
+                                    <span class="product-admin-name">Notion Life OS</span>
+                                    <span class="product-admin-price">⭐ 500</span>
+                                </div>
+                                <div class="product-admin-actions">
+                                    <button class="btn-ghost small">✏️</button>
+                                    <button class="btn-ghost small">🗑</button>
+                                </div>
+                            </div>
+                            <div class="product-admin-item">
+                                <div class="product-admin-info">
+                                    <span class="product-admin-name">Kawaii Stickers</span>
+                                    <span class="product-admin-price">⭐ 150</span>
+                                </div>
+                                <div class="product-admin-actions">
+                                    <button class="btn-ghost small">✏️</button>
+                                    <button class="btn-ghost small">🗑</button>
+                                </div>
+                            </div>
+                            <div class="product-admin-item">
+                                <div class="product-admin-info">
+                                    <span class="product-admin-name">AI Writer Bot</span>
+                                    <span class="product-admin-price">⭐ 800</span>
+                                </div>
+                                <div class="product-admin-actions">
+                                    <button class="btn-ghost small">✏️</button>
+                                    <button class="btn-ghost small">🗑</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="admin-section">
+                    <h2 class="section-title">⚙️ Настройки</h2>
+                    <div class="settings-form">
+                        <div class="form-group">
+                            <label>Комиссия (%)</label>
+                            <input type="number" id="commission" class="form-input" value="10" min="0" max="50">
+                        </div>
+                        <div class="form-group">
+                            <label>Приветственное сообщение</label>
+                            <textarea id="welcomeMsg" class="form-textarea" rows="3">Добро пожаловать в DigiMarket!</textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="toggle-label">
+                                <input type="checkbox" id="maintenance" class="toggle-input">
+                                <span class="toggle-slider"></span>
+                                Техническое обслуживание
+                            </label>
+                        </div>
+                        <button class="btn-primary" id="saveSettings">💾 Сохранить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="modal" id="productModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close">✕</button>
+            <h3>Добавить товар</h3>
+            <div class="form-group">
+                <label>Название</label>
+                <input type="text" id="productName" class="form-input" placeholder="Название товара">
+            </div>
+            <div class="form-group">
+                <label>Описание</label>
+                <textarea id="productDesc" class="form-textarea" rows="3" placeholder="Описание товара"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Цена (Stars)</label>
+                <input type="number" id="productPrice" class="form-input" placeholder="100">
+            </div>
+            <div class="form-group">
+                <label>Категория</label>
+                <select id="productCategory" class="form-select">
+                    <option value="templates">Шаблоны</option>
+                    <option value="stickers">Стикеры</option>
+                    <option value="bots">Боты</option>
+                    <option value="presets">Пресеты</option>
+                    <option value="guides">Гайды</option>
+                    <option value="design">Дизайн</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Файл товара</label>
+                <input type="file" id="productFile" class="form-input">
+            </div>
+            <button class="btn-primary full-width" id="saveProduct">💾 Сохранить</button>
+        </div>
+    </div>
+
+    <div class="notification" id="notification">
+        <div class="notification-content">
+            <span class="notification-icon"></span>
+            <span class="notification-text"></span>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
