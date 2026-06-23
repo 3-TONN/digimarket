@@ -1,28 +1,10 @@
 services:
   - type: web
-    name: digimarket-api
-    runtime: node
-    plan: free
-    buildCommand: cd api && npm install
-    startCommand: cd api && node server.js
-    envVars:
-      - key: NODE_ENV
-        value: production
-      - key: API_PORT
-        value: 10000
-      - key: BOT_TOKEN
-        sync: false
-      - key: ADMIN_IDS
-        sync: false
-      - key: WEB_APP_URL
-        sync: false
-
-  - type: worker
-    name: digimarket-bot
+    name: digimarket
     runtime: python
     plan: free
-    buildCommand: cd bot && pip install -r requirements.txt
-    startCommand: cd bot && python bot.py
+    buildCommand: pip install -r bot/requirements.txt && cd api && npm install
+    startCommand: cd api && node server.js
     envVars:
       - key: BOT_TOKEN
         sync: false
@@ -30,5 +12,3 @@ services:
         sync: false
       - key: WEB_APP_URL
         sync: false
-      - key: API_URL
-        value: https://digimarket-api.onrender.com
